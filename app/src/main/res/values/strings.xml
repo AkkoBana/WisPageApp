@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Recycler View App</string>
+    <string name="rooms">Rooms</string>
+    <string name="wissis_url">wisiss.com</string>
+</resources>
