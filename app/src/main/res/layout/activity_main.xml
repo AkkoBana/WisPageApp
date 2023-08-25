@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView4"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|top"
@@ -21,119 +21,137 @@
 
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/linearLayoutCompat2"
-        android:layout_width="0dp"
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivLogo"
+        tools:visibility="visible">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/rooms"
+            android:textColor="@color/dark"
             android:textSize="30sp"
-            android:textStyle="bold"
-            android:textColor="@color/dark"/>
+            android:textStyle="bold" />
 
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginRight="6dp"
+            android:layout_marginEnd="6dp"
             android:background="@color/white"
+            android:contentDescription="profile"
             app:srcCompat="@drawable/ic_profile" />
 
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginLeft="6dp"
             android:layout_marginRight="6dp"
             android:background="@color/white"
+            android:contentDescription="add"
             app:srcCompat="@drawable/ic_plus" />
 
-        <ImageButton
-            android:id="@+id/btn_search"
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/ibOpenSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginLeft="6dp"
+            android:layout_marginStart="6dp"
             android:background="@color/white"
+            android:contentDescription="search"
             app:srcCompat="@drawable/ic_search" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/switchCompat2"
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_edit_text"
+        android:drawableStart="@drawable/ic_search_bar"
+        android:drawablePadding="10dp"
+        android:hint="@string/hint_search"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="9dp"
+        android:textColor="@color/dark"
+        android:textColorHint="@color/text_secondary"
+        android:textSize="17sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivLogo" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/ibCloseSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat2" />
+        android:layout_marginEnd="24dp"
+        android:background="@color/search_bar_color"
+        android:src="@drawable/ic_cancel"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/etSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/etSearch" />
 
-    <TextView
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchCompat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivLogo" />
+
+    <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
-        android:text="Only my rooms"
+        android:text="@string/switch_text"
+        android:textColor="@color/dark"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/switchCompat2"
-        app:layout_constraintStart_toEndOf="@+id/switchCompat2"
-        app:layout_constraintTop_toTopOf="@+id/switchCompat2"
-        android:textColor="@color/dark"/>
+        app:layout_constraintBottom_toBottomOf="@+id/switchCompat"
+        app:layout_constraintStart_toEndOf="@+id/switchCompat"
+        app:layout_constraintTop_toTopOf="@+id/switchCompat" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_rooms"
+        android:id="@+id/rvRooms"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
         android:textColor="@color/dark"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/tvURL"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switchCompat2"
+        app:layout_constraintTop_toBottomOf="@+id/switchCompat"
         tools:itemCount="5"
         tools:listitem="@layout/item_layout" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvURL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:text="@string/wissis_url"
+        android:textColor="@color/dark"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        android:textColor="@color/dark"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="16dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
-
-    <EditText
-        android:id="@+id/editTextText3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Search"
-        android:visibility="gone"
-        tools:layout_editor_absoluteX="201dp"
-        tools:layout_editor_absoluteY="107dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

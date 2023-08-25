@@ -2,4 +2,8 @@
     <string name="app_name">Recycler View App</string>
     <string name="rooms">Rooms</string>
     <string name="wissis_url">wisiss.com</string>
+    <string name="switch_text">Only my rooms</string>
+    <string name="hint_search">Search</string>
+    <string name="tvItemNumber">This is 1 item in RecyclerView</string>
+    <string name="room">Room</string>
 </resources>
