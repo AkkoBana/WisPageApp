@@ -6,4 +6,7 @@
     <string name="hint_search">Search</string>
     <string name="tvItemNumber">This is 1 item in RecyclerView</string>
     <string name="room">Room</string>
+    <string name="tvRoomName">Room 1</string>
+    <string name="channel">Channel</string>
+    <string name="play_stop_state">Play</string>
 </resources>

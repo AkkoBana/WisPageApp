@@ -1,5 +1,6 @@
-package com.achiakkon.recyclerviewapp.adapters
+package com.achiakkon.recyclerviewapp
 
+import com.achiakkon.recyclerviewapp.model.Channel
 import com.achiakkon.recyclerviewapp.model.Room
 
 object Extentions {
@@ -19,4 +20,10 @@ object Extentions {
         Room("Room 9", "translation", false, false),
         Room("Room 10", "translation", true, false),
     )
+
+    fun generateChannels(): List<Channel> = listOf (
+        Channel("Russian", false),
+        Channel("English", false)
+            )
+
 }

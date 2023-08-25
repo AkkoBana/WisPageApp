@@ -13,10 +13,10 @@
         android:theme="@style/Theme.RecyclerViewApp"
         tools:targetApi="31">
         <activity
-            android:name=".activities.ItemInfo"
+            android:name=".ui.RoomChannelsActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
